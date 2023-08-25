@@ -2,6 +2,7 @@ import {Image, StyleSheet, Text, View, Pressable} from 'react-native';
 import React, {useState} from 'react';
 import withBackground from '../hocs/withBackground';
 import {TextInput} from 'react-native';
+import Svg from 'react-native-svg';
 
 const LoginPage = () => {
   const {email, setEmail} = useState('');
