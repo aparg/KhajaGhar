@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Viga/OFL.txt",
+      "sha1": "41db0b07dca66519c4b0e1fc0bea91e713090e70"
+    },
+    {
+      "path": "assets/fonts/Viga/Viga-Regular.ttf",
+      "sha1": "bad34f2b54650993d29b6f0a115b9865c336774b"
+    }
+  ]
+}
