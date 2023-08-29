@@ -1,55 +1,67 @@
-import {Image, StyleSheet, Text, View, Pressable} from 'react-native';
+import {Image, StyleSheet, Text, View, Pressable, Linking} from 'react-native';
 import React, {useState} from 'react';
 import withBackground from '../hocs/withBackground';
 import {TextInput} from 'react-native';
-import Svg from 'react-native-svg';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import InputTextBox from '../InputTextBox/InputTextBox';
+import LogoName from '../LogoName/LogoName';
 
-const LoginPage = () => {
+const LoginPage = ({navigation}) => {
   const {email, setEmail} = useState('');
   const {pswd, setPswd} = useState('');
   return (
     <>
-      <View style={styles.logoWrapper}>
-        <Image
-          style={styles.logoImg}
-          source={require('../../../assets/images/Logo/Logo.png')}
-        />
-        <Text style={styles.appNameText}>FoodNinja</Text>
-        <Text style={styles.quote}>Deliver Favorite Food</Text>
-      </View>
-
+      <LogoName />
       <Text style={styles.title}>Login to Your Account</Text>
       <View style={styles.loginForm}>
-        <TextInput
+        <InputTextBox
           value={email}
           onChange={setEmail}
-          style={styles.textInput}
-          placeholder="Email"></TextInput>
-        <TextInput
+          placeholder="Email"></InputTextBox>
+        <InputTextBox
           value={pswd}
           onChange={setPswd}
-          style={styles.textInput}
-          placeholder="Password"></TextInput>
+          placeholder="Password"></InputTextBox>
       </View>
       <Text style={styles.boldSmall}>Or Continue With</Text>
       <View style={styles.socialLinkContainer}>
         <Pressable
           onClick={() => {
-            /* T be implemented */
+            /* To be implemented */
           }}
           style={styles.socialLink}>
-          <Image
-            source={require('../../../assets/images/social/facebook.png')}></Image>
+          <View style={styles.socialLinkWrapper}>
+            <FontAwesome5 name={'facebook'} color="#4267B2" size={30} brand />
+            <Text style={styles.socialTxt}>Facebook</Text>
+          </View>
         </Pressable>
         <Pressable
           onClick={() => {
-            /* T be implemented */
+            /* To be implemented */
           }}
           style={styles.socialLink}>
-          <Image
-            source={require('../../../assets/images/social/facebook.png')}></Image>
+          <View style={styles.socialLinkWrapper}>
+            <Image
+              source={require('../../../assets/images/social/google.png')}
+              style={styles.googleIcon}></Image>
+            <Text style={styles.socialTxt}>Google</Text>
+          </View>
         </Pressable>
       </View>
+      <Text
+        style={styles.forgotPswd}
+        onPress={() => {
+          /**TO BE IMPLEMENTED*/
+        }}>
+        Forgot your password?
+      </Text>
+      <PrimaryButton
+        text="Login"
+        pressed={() => {
+          navigation.navigate('SignUp');
+        }}
+      />
     </>
   );
 };
@@ -57,28 +69,6 @@ const LoginPage = () => {
 export default withBackground(LoginPage);
 
 const styles = StyleSheet.create({
-  logoImg: {
-    alignItems: 'flex-start',
-  },
-  logoWrapper: {
-    alignSelf: 'center',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginTop: 40,
-  },
-  appNameText: {
-    fontFamily: 'Viga-Regular',
-    fontSize: 40,
-    fontWeight: '400',
-    opacity: 1,
-    color: '#53E88B',
-  },
-  quote: {
-    color: '#09051C',
-    fontSize: 13,
-    fontWeight: '600',
-    letterSpacing: 1,
-  },
   title: {
     alignSelf: 'center',
     fontFamily: 'Bentonsans Bold',
@@ -87,16 +77,6 @@ const styles = StyleSheet.create({
     color: '#09051C',
     marginTop: 50,
     marginBottom: 40,
-  },
-  textInput: {
-    color: '#000',
-    width: '80%',
-    borderWidth: 1,
-    borderColor: '#F4F4F4',
-    borderRadius: 15,
-    margin: 5,
-    height: 57,
-    paddingHorizontal: 30,
   },
   loginForm: {
     background: '#fff',
@@ -117,11 +97,10 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '800',
     color: '#09051C',
-    marginTop: 20,
+    marginTop: 25,
     marginBottom: 40,
   },
   socialLinkContainer: {
-    flex: 1,
     flexDirection: 'row',
   },
   socialLink: {
@@ -132,6 +111,30 @@ const styles = StyleSheet.create({
     height: 50,
     marginHorizontal: 20,
     justifyContent: 'center',
-    padding: 20,
+    paddingHorizontal: 20,
+  },
+  googleIcon: {
+    width: 30,
+    height: 30,
+  },
+  socialLinkWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  socialTxt: {
+    fontWeight: '700',
+    color: '#000',
+    fontSize: 14,
+    paddingHorizontal: 20,
+    fontFamily: 'BentonSans Medium',
+  },
+  forgotPswd: {
+    alignSelf: 'center',
+    color: '#53E88B',
+    fontFamily: 'BentonSans Medium',
+    fontWeight: '800',
+    textDecorationLine: 'underline',
+    marginVertical: 30,
+    fontSize: 12,
   },
 });
