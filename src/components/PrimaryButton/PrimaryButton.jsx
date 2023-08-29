@@ -4,7 +4,7 @@ import React from 'react';
 
 const PrimaryButton = ({text, pressed}) => {
   return (
-    <View>
+    <View style={styles.wrapper}>
       <LinearGradient
         colors={['#53E88B', '#15BE77']}
         start={{x: 0, y: 1}}
@@ -21,6 +21,10 @@ const PrimaryButton = ({text, pressed}) => {
 export default PrimaryButton;
 
 const styles = StyleSheet.create({
+  wrapper: {
+    width: 'auto',
+    alignSelf: 'center',
+  },
   btn: {
     borderRadius: 15,
     width: 157,
