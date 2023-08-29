@@ -3,7 +3,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import React from 'react';
 
 const withBackground = OriginalComponent => {
-  function NewComponent() {
+  function NewComponent(props) {
     return (
       <ImageBackground
         source={require('../../../assets/images/Pattern.png')}
@@ -16,7 +16,7 @@ const withBackground = OriginalComponent => {
             'rgba(255,255,255,1)',
           ]}
           style={styles.linearGradient}>
-          <OriginalComponent />
+          <OriginalComponent {...props} />
         </LinearGradient>
       </ImageBackground>
     );
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   backgroundImg: {
     height: '50%',
     flex: 1,
-    zIndex: 0,
+    zIndex: -1,
   },
   linearGradient: {
     height: '100%',
