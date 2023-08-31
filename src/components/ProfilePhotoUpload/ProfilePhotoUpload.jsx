@@ -85,6 +85,7 @@ const ProfilePhotoUpload = ({navigation}) => {
         text="Next"
         pressed={() => {
           selectedImage && dispatch(saveImagePath({imgPath: selectedImage}));
+          navigation.navigate('SetLocation');
         }}
       />
     </View>
