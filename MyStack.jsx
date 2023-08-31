@@ -7,6 +7,7 @@ import SignUp from './src/components/SignUp/SignUp';
 import BioFillup from './src/components/BioFIllup/BioFillup';
 import PaymentMethod from './src/components/PaymentMethod/PaymentMethod';
 import ProfilePhotoUpload from './src/components/ProfilePhotoUpload/ProfilePhotoUpload';
+import SetLocation from './src/components/SetLocation/SetLocation';
 import {PersistGate} from 'redux-persist/integration/react';
 import {Provider} from 'react-redux';
 import persistStore from 'redux-persist/es/persistStore';
@@ -55,6 +56,11 @@ const MyStack = () => {
             <Stack.Screen
               name="ProfilePhotoUpload"
               component={ProfilePhotoUpload}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="SetLocation"
+              component={SetLocation}
               options={{headerShown: false}}
             />
           </Stack.Navigator>
