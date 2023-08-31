@@ -70,16 +70,18 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 
 android {
     ndkVersion rootProject.ext.ndkVersion
-
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
     compileSdkVersion rootProject.ext.compileSdkVersion
-
     namespace "com.fooddeliveryapp"
     defaultConfig {
         applicationId "com.fooddeliveryapp"
         minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion 27
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
     }
     signingConfigs {
         debug {

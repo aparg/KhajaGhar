@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, TextInput} from 'react-native';
+import {StyleSheet, TextInput} from 'react-native';
 import React from 'react';
 
 const InputTextBox = ({value, onChange, placeholder}) => {
@@ -28,6 +28,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.07,
     shadowRadius: 3,
     elevation: 10,
+    alignSelf: 'center',
+    marginTop: 15,
   },
 });
 export default InputTextBox;

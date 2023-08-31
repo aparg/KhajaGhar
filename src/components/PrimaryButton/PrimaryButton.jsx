@@ -22,8 +22,10 @@ export default PrimaryButton;
 
 const styles = StyleSheet.create({
   wrapper: {
-    width: 'auto',
     alignSelf: 'center',
+    position: 'absolute',
+    marginTop: 700,
+    // zIndex: -5,
   },
   btn: {
     borderRadius: 15,
@@ -37,7 +39,7 @@ const styles = StyleSheet.create({
   },
   txt: {
     color: '#fff',
-    fontFamily: 'BentonSans Bold',
+    fontFamily: 'BentonSans Book',
     fontSize: 16,
     fontWeight: '800',
   },
