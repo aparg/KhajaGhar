@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     fontFamily: 'BentonSans Medium',
     fontWeight: '800',
     textDecorationLine: 'underline',
-    marginVertical: 30,
+    marginTop: 10,
     fontSize: 12,
   },
 });

@@ -24,7 +24,10 @@ const SetLocation = ({navigation}) => {
           <Text style={styles.btnTxt}>Set Location</Text>
         </Pressable>
       </View>
-      <PrimaryButton text="Next" />
+      <PrimaryButton
+        text="Next"
+        pressed={() => navigation.navigate('ProfileReady')}
+      />
     </View>
   );
 };
@@ -35,19 +38,6 @@ const styles = StyleSheet.create({
   wrapper: {
     marginHorizontal: 20,
     marginTop: 40,
-  },
-  bigBold: {
-    fontFamily: 'BentonSans Bold',
-    color: '#09051C',
-    fontWeight: '800',
-    fontSize: 35,
-    marginBottom: 10,
-  },
-  small: {
-    fontFamily: 'BentonSans Bold',
-    color: '#09051C',
-    fontSize: 15,
-    marginTop: 5,
   },
   setLocationBtn: {
     width: '100%',

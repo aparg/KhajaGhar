@@ -24,8 +24,9 @@ const styles = StyleSheet.create({
   wrapper: {
     alignSelf: 'center',
     position: 'absolute',
-    marginTop: 700,
-    // zIndex: -5,
+    // marginTop: 700,
+    paddingTop: 680,
+    // borderWidth: 2,
   },
   btn: {
     borderRadius: 15,

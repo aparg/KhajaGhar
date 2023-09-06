@@ -8,11 +8,13 @@ import BioFillup from './src/components/BioFIllup/BioFillup';
 import PaymentMethod from './src/components/PaymentMethod/PaymentMethod';
 import ProfilePhotoUpload from './src/components/ProfilePhotoUpload/ProfilePhotoUpload';
 import SetLocation from './src/components/SetLocation/SetLocation';
+import ProfileReady from './src/components/ProfileReady/ProfileReady';
+import CodeVerification from './src/components/CodeVerification/CodeVerification';
+import ForgotPassword from './src/components/ForgotPassword/ForgotPassword';
 import {PersistGate} from 'redux-persist/integration/react';
 import {Provider} from 'react-redux';
 import persistStore from 'redux-persist/es/persistStore';
 import persistedProfileStore from './store/store';
-
 const Stack = createStackNavigator();
 
 const MyStack = () => {
@@ -22,7 +24,7 @@ const MyStack = () => {
     <Provider store={persistedProfileStore}>
       <PersistGate persistor={persistor}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="FirstEntryPage">
+          <Stack.Navigator initialRouteName="CodeVerification">
             <Stack.Screen
               name="FirstEntryPage"
               component={FirstEntryPage}
@@ -61,6 +63,21 @@ const MyStack = () => {
             <Stack.Screen
               name="SetLocation"
               component={SetLocation}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="ProfileReady"
+              component={ProfileReady}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="CodeVerification"
+              component={CodeVerification}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="ForgotPassword"
+              component={ForgotPassword}
               options={{headerShown: false}}
             />
           </Stack.Navigator>

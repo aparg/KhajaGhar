@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     elevation: 10,
     alignSelf: 'center',
     marginTop: 15,
+    borderWidth: 2,
   },
 });
 export default InputTextBox;
