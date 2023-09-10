@@ -8,10 +8,10 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import withBackground from '../hocs/withBackground';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import LogoName from '../LogoName/LogoName';
 import Checkbox from '../Checkbox/Checkbox';
+import {ICONS} from '../../images/images';
 
 const SignUp = ({navigation}) => {
   const {email, setEmail} = useState('');
@@ -23,7 +23,7 @@ const SignUp = ({navigation}) => {
       <Text style={styles.title}>Sign Up For Free</Text>
       <View style={styles.loginForm}>
         <View style={styles.txtBoxWithIcon}>
-          <Image source={require('../../../assets/images/icons/profile.png')} />
+          <Image source={ICONS.profile} />
           <TextInput
             value={username}
             onChange={setUsername}
@@ -31,7 +31,7 @@ const SignUp = ({navigation}) => {
             style={styles.textInput}></TextInput>
         </View>
         <View style={styles.txtBoxWithIcon}>
-          <Image source={require('../../../assets/images/icons/email.png')} />
+          <Image source={ICONS.email} />
           <TextInput
             value={email}
             onChange={setEmail}
@@ -39,9 +39,7 @@ const SignUp = ({navigation}) => {
             style={styles.textInput}></TextInput>
         </View>
         <View style={styles.txtBoxWithIcon}>
-          <Image
-            source={require('../../../assets/images/icons/password.png')}
-          />
+          <Image source={ICONS.password} />
           <TextInput
             value={pswd}
             onChange={setPswd}
@@ -141,5 +139,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     marginVertical: 30,
     fontSize: 12,
+    position: 'absolute',
+    marginTop: 750,
   },
 });

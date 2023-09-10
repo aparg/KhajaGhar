@@ -1,12 +1,13 @@
 import {StyleSheet, ImageBackground} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import React from 'react';
+import {BACKGROUND} from '../../images/images';
 
 const withBackground = OriginalComponent => {
   function NewComponent(props) {
     return (
       <ImageBackground
-        source={require('../../../assets/images/Pattern.png')}
+        source={BACKGROUND.background}
         resizeMode="cover"
         style={styles.backgroundImg}>
         <LinearGradient

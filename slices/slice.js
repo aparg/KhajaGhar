@@ -6,6 +6,7 @@ let initialState = {
   firstName: null,
   lastName: null,
   mobileNumber: null,
+  email: null,
 };
 
 const profileSlice = createSlice({
@@ -13,14 +14,16 @@ const profileSlice = createSlice({
   initialState,
   reducers: {
     saveProfileData: (state, action) => {
-      (state.bio = action.payload.bio),
-        (state.firstName = action.payload.firstName),
-        (state.lastName = action.payload.lastName),
-        (state.mobileNumber = action.payload.mobileNumber);
+      state.bio = action.payload.bio;
+      state.firstName = action.payload.firstName;
+      state.lastName = action.payload.lastName;
+      state.mobileNumber = action.payload.mobileNumber;
     },
     saveImagePath: (state, action) => {
       state.profilePhoto = action.payload.imgPath;
-      console.log('SAVED');
+    },
+    saveEmail: (state, action) => {
+      state.email = action.payload.email;
     },
   },
 });

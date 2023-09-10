@@ -1,16 +1,12 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import PrimaryButton from '../../PrimaryButton/PrimaryButton';
-import LinearGradient from 'react-native-linear-gradient';
 import {LinearTextGradient} from 'react-native-text-gradient';
+import {ICONS} from '../../../images/images';
 
 const Congrats = ({text}) => {
   return (
     <View style={styles.wrapper}>
-      <Image
-        source={require('../../../../assets/images/misc/congrats.png')}
-        style={styles.tickImage}
-      />
+      <Image source={ICONS.congrats} style={styles.tickImage} />
 
       <LinearTextGradient
         style={styles.bigText}

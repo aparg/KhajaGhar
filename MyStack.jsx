@@ -11,10 +11,14 @@ import SetLocation from './src/components/SetLocation/SetLocation';
 import ProfileReady from './src/components/ProfileReady/ProfileReady';
 import CodeVerification from './src/components/CodeVerification/CodeVerification';
 import ForgotPassword from './src/components/ForgotPassword/ForgotPassword';
+import ResetPassword from './src/components/ResetPassword/ResetPassword';
 import {PersistGate} from 'redux-persist/integration/react';
 import {Provider} from 'react-redux';
 import persistStore from 'redux-persist/es/persistStore';
 import persistedProfileStore from './store/store';
+import PasswordResetSuccess from './src/components/PasswordResetSuccess/PasswordResetSuccess';
+import Home from './src/components/Home/Home';
+
 const Stack = createStackNavigator();
 
 const MyStack = () => {
@@ -24,7 +28,7 @@ const MyStack = () => {
     <Provider store={persistedProfileStore}>
       <PersistGate persistor={persistor}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="CodeVerification">
+          <Stack.Navigator initialRouteName="ResetPassword">
             <Stack.Screen
               name="FirstEntryPage"
               component={FirstEntryPage}
@@ -78,6 +82,21 @@ const MyStack = () => {
             <Stack.Screen
               name="ForgotPassword"
               component={ForgotPassword}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="ResetPassword"
+              component={ResetPassword}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="PasswordResetSuccess"
+              component={PasswordResetSuccess}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Home"
+              component={Home}
               options={{headerShown: false}}
             />
           </Stack.Navigator>

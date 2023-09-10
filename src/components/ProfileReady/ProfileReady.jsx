@@ -1,7 +1,6 @@
 import React from 'react';
 import Congrats from '../Layouts/Congrats/Congrats';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
-
 const ProfileReady = ({navigation}) => {
   return (
     <>
@@ -9,7 +8,7 @@ const ProfileReady = ({navigation}) => {
       <PrimaryButton
         text="Try Order"
         pressed={() => {
-          navigation.navigate('CodeVerification');
+          navigation.navigate('Home');
         }}
       />
     </>

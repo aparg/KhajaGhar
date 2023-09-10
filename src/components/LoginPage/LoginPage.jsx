@@ -1,17 +1,18 @@
 import {Image, StyleSheet, Text, View, Pressable, Linking} from 'react-native';
 import React, {useState} from 'react';
 import withBackground from '../hocs/withBackground';
-import {TextInput} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import InputTextBox from '../InputTextBox/InputTextBox';
 import LogoName from '../LogoName/LogoName';
+import globalStyle from '../../Typography/typography';
+import {SOCIALS} from '../../images/images';
 
 const LoginPage = ({navigation}) => {
   const {email, setEmail} = useState('');
   const {pswd, setPswd} = useState('');
   return (
-    <>
+    <View style={globalStyle.wrapper}>
       <LogoName />
       <Text style={styles.title}>Login to Your Account</Text>
       <View style={styles.loginForm}>
@@ -42,9 +43,7 @@ const LoginPage = ({navigation}) => {
           }}
           style={styles.socialLink}>
           <View style={styles.socialLinkWrapper}>
-            <Image
-              source={require('../../../assets/images/social/google.png')}
-              style={styles.googleIcon}></Image>
+            <Image source={SOCIALS.google} style={styles.googleIcon}></Image>
             <Text style={styles.socialTxt}>Google</Text>
           </View>
         </Pressable>
@@ -52,7 +51,7 @@ const LoginPage = ({navigation}) => {
       <Text
         style={styles.forgotPswd}
         onPress={() => {
-          /**TO BE IMPLEMENTED*/
+          navigation.navigate('ForgotPassword');
         }}>
         Forgot your password?
       </Text>
@@ -62,7 +61,7 @@ const LoginPage = ({navigation}) => {
           navigation.navigate('SignUp');
         }}
       />
-    </>
+    </View>
   );
 };
 
@@ -125,7 +124,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000',
     fontSize: 14,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     fontFamily: 'BentonSans Medium',
   },
   forgotPswd: {
@@ -134,7 +133,7 @@ const styles = StyleSheet.create({
     fontFamily: 'BentonSans Medium',
     fontWeight: '800',
     textDecorationLine: 'underline',
-    marginTop: 10,
+    marginTop: 5,
     fontSize: 12,
   },
 });

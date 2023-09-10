@@ -3,6 +3,7 @@ import React from 'react';
 import BackButton from '../BackButton/BackButton';
 import withBackground from '../hocs/withBackground';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import {ICONS} from '../../images/images';
 
 const SetLocation = ({navigation}) => {
   return (
@@ -15,9 +16,7 @@ const SetLocation = ({navigation}) => {
       <Text style={styles.small}>profile for security</Text>
       <View style={styles.box}>
         <View style={styles.rowFlex}>
-          <Image
-            source={require('../../../assets/images/icons/location.png')}
-          />
+          <Image source={ICONS.location} />
           <Text style={styles.locationInput}>Your Location</Text>
         </View>
         <Pressable onPress={() => {}} style={styles.setLocationBtn}>

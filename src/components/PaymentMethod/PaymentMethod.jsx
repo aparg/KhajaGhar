@@ -2,6 +2,7 @@ import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import BackButton from '../BackButton/BackButton';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import {PAYMENT} from '../../images/images';
 
 const PaymentMethod = ({navigation}) => {
   return (
@@ -15,19 +16,13 @@ const PaymentMethod = ({navigation}) => {
         <Text style={styles.small}>profile for security</Text>
         <View>
           <Pressable style={styles.paymentOptionBox}>
-            <Image
-              source={require('../../../assets/images/payment/paypal.png')}
-            />
+            <Image source={PAYMENT.paypal} />
           </Pressable>
           <Pressable style={styles.paymentOptionBox}>
-            <Image
-              source={require('../../../assets/images/payment/visa.png')}
-            />
+            <Image source={PAYMENT.visa} />
           </Pressable>
           <Pressable style={styles.paymentOptionBox}>
-            <Image
-              source={require('../../../assets/images/payment/payoneer.png')}
-            />
+            <Image source={PAYMENT.payoneer} />
           </Pressable>
         </View>
       </View>

@@ -17,7 +17,7 @@ const persistConfig = {
 };
 
 let combinedReducer = combineReducers({
-  todos: profileReducer,
+  profileData: profileReducer,
 });
 const persistedProfileReducer = persistReducer(persistConfig, combinedReducer);
 const persistedProfileStore = configureStore({

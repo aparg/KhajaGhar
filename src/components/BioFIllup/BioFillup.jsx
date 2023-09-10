@@ -1,14 +1,24 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+} from 'react-native';
 import React, {useState} from 'react';
-import InputTextBox from '../InputTextBox/InputTextBox';
 import BackButton from '../BackButton/BackButton';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import globalStyle from '../../Typography/typography';
+import inputBoxStyle from '../../Typography/inputBox';
+import {useDispatch} from 'react-redux';
+import {saveProfileData} from '../../../slices/slice';
 
 const BioFillup = ({navigation}) => {
-  const {firstName, setFirstName} = useState('');
-  const {lastName, setLastName} = useState('');
-  const {mobileName, setMobileName} = useState('');
+  const dispatch = useDispatch();
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [mobileNumber, setMobileNumber] = useState('');
   return (
     <View style={globalStyle.wrapper}>
       <View>
@@ -24,27 +34,38 @@ const BioFillup = ({navigation}) => {
         </View>
       </View>
       <View style={styles.form}>
-        <InputTextBox
+        <TextInput
           placeholder="First Name"
           value={firstName}
-          onChange={setFirstName}
+          onChangeText={setFirstName}
+          style={inputBoxStyle.inputBox}
         />
-        <InputTextBox
+        <TextInput
           placeholder="Last Name"
           value={lastName}
-          onChange={setLastName}
+          onChangeText={setLastName}
+          style={inputBoxStyle.inputBox}
         />
-        <InputTextBox
+        <TextInput
           placeholder="Mobile Name"
-          value={mobileName}
-          onChange={setMobileName}
+          value={mobileNumber}
+          onChangeText={setMobileNumber}
+          style={inputBoxStyle.inputBox}
         />
       </View>
       <PrimaryButton
         text="Next"
-        pressed={() => navigation.navigate('PaymentMethod')}
+        pressed={() => {
+          dispatch(
+            saveProfileData({
+              firstName,
+              lastName,
+              mobileNumber: '+977 ' + mobileNumber,
+            }),
+          );
+          navigation.navigate('PaymentMethod');
+        }}
       />
-      {console.log(firstName)}
     </View>
   );
 };

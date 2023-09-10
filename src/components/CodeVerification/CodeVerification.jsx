@@ -7,8 +7,7 @@ import BackButton from '../BackButton/BackButton';
 import globalStyle from '../../Typography/typography';
 
 const CodeVerification = ({navigation}) => {
-  // console.log(useSelector(state => state.mobileNumber));
-  const mobileNumber = useSelector(state => state.mobileNumber);
+  const mobileNumber = useSelector(state => state.profileData.mobileNumber);
   const [time, setTime] = useState(5);
   useEffect(() => {
     const timerId = setInterval(function () {
@@ -28,7 +27,7 @@ const CodeVerification = ({navigation}) => {
       <BackButton to="ProfilePhotoUpload" navigation={navigation} />
       <Text style={globalStyle.bigBold}>Enter 4-digit Verification code</Text>
       <Text style={globalStyle.small}>
-        Code sent to {mobileNumber?.slice(0, 6)}****. The code will
+        Code sent to {mobileNumber?.slice(0, 9)}******. The code will
       </Text>
       <Text style={globalStyle.small}>
         expire in {Math.floor(time / 60)}:{time % 60}
@@ -37,11 +36,11 @@ const CodeVerification = ({navigation}) => {
         keyboardType="numeric"
         style={styles.otpBox}
         maxLength={4}
-        onSubmitEditing={() => navigation.navigate('ProfilePhotoUpload')}
+        onSubmitEditing={() => navigation.navigate('ForgotPassword')}
       />
       <PrimaryButton
         text="Next"
-        pressed={() => navigation.navigate('ProfilePhotoUpload')}
+        pressed={() => navigation.navigate('ForgotPassword')}
       />
     </View>
   );
@@ -58,11 +57,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     // borderWidth: 1,
     borderRadius: 15,
-    shadowColor: '#5A6CEA',
-    shadowOffset: {width: -12, height: 100},
-    shadowOpacity: 0.07,
-    shadowRadius: 15,
-    elevation: 8,
     fontSize: 33,
     fontFamily: 'BentonSans Medium',
     borderWidth: 1,

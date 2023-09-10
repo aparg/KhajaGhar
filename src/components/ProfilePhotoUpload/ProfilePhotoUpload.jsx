@@ -3,9 +3,11 @@ import ImagePicker from 'react-native-image-crop-picker';
 import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import BackButton from '../BackButton/BackButton';
 import SecondaryButton from '../SecondaryButton/SecondaryButton';
+import globalStyle from '../../Typography/typography';
 import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {saveImagePath} from '../../../slices/slice';
+import {ICONS} from '../../images/images';
 
 const ProfilePhotoUpload = ({navigation}) => {
   const dispatch = useDispatch();
@@ -39,7 +41,7 @@ const ProfilePhotoUpload = ({navigation}) => {
   };
 
   return (
-    <View style={styles.wrapper}>
+    <View style={globalStyle.wrapper}>
       <BackButton to="PaymentMethod" navigation={navigation} />
       <Text style={styles.bigBold}>Upload Your Photo Profile</Text>
       <View style={styles.contentWrapper}>
@@ -63,9 +65,7 @@ const ProfilePhotoUpload = ({navigation}) => {
                 handleImagePick();
               }}
               style={styles.box}>
-              <Image
-                source={require('../../../assets/images/icons/select-from-gallery.png')}
-              />
+              <Image source={ICONS.selectFromGallery} />
               <Text>From Gallery</Text>
             </Pressable>
             <Pressable
@@ -73,9 +73,7 @@ const ProfilePhotoUpload = ({navigation}) => {
               onPress={() => {
                 handleCameraOpen();
               }}>
-              <Image
-                source={require('../../../assets/images/icons/open-camera.png')}
-              />
+              <Image source={ICONS.openCamera} />
               <Text>Take Photo</Text>
             </Pressable>
           </>

@@ -1,5 +1,5 @@
 import EntryPage from '../Layouts/EntryPage/EntryPage';
-
+import {ILLUSTRATIONS} from '../../images/images';
 const SecondEntryPage = ({navigation}) => {
   return (
     <EntryPage
@@ -7,7 +7,7 @@ const SecondEntryPage = ({navigation}) => {
       welcomeNoteLine2="Comfort Food Lives"
       messageLine1="Enjoy a fast and smooth food delivery at"
       messageLine2="your doorstep"
-      imagePath={require('../../../assets/images/EntryPageIllustration2.png')}
+      imagePath={ILLUSTRATIONS.entryPageIllustration1}
       pressed={() => navigation.navigate('LoginPage')}
     />
   );
