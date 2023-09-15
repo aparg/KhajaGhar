@@ -2,7 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Congrats from '../Layouts/Congrats/Congrats';
 import withBackground from '../hocs/withBackground';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import PrimaryButton from '../Layouts/PrimaryButton/PrimaryButton';
 
 const PasswordResetSuccess = ({navigation}) => {
   return (
@@ -16,6 +16,7 @@ const PasswordResetSuccess = ({navigation}) => {
   );
 };
 
-export default withBackground(PasswordResetSuccess);
+// export default withBackground(PasswordResetSuccess);
+export default PasswordResetSuccess;
 
 const styles = StyleSheet.create({});

@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState, useRef} from 'react';
 import {useSelector} from 'react-redux';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import PrimaryButton from '../Layouts/PrimaryButton/PrimaryButton';
 import {TextInput} from 'react-native-gesture-handler';
 import BackButton from '../BackButton/BackButton';
 import globalStyle from '../../Typography/typography';

@@ -7,22 +7,27 @@ import {
   TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
-import BackButton from '../BackButton/BackButton';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
-import globalStyle from '../../Typography/typography';
-import inputBoxStyle from '../../Typography/inputBox';
+import BackButton from '../../BackButton/BackButton';
+import PrimaryButton from '../../Layouts/PrimaryButton/PrimaryButton';
+import globalStyle from '../../../Typography/typography';
+import inputBoxStyle from '../../../Typography/inputBox';
 import {useDispatch} from 'react-redux';
-import {saveProfileData} from '../../../slices/slice';
+import {saveProfileData} from '../../../../slices/slice';
+import {useSelector} from 'react-redux';
 
-const BioFillup = ({navigation}) => {
+const BioFillup = ({navigation, route}) => {
   const dispatch = useDispatch();
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [mobileNumber, setMobileNumber] = useState('');
+  const storedFirstName = useSelector(state => state.profileData.firstName);
+  const storedLastName = useSelector(state => state.profileData.lastName);
+  const storedMobileNumber = useSelector(
+    state => state.profileData.mobileNumber,
+  );
+  const [firstName, setFirstName] = useState(storedFirstName);
+  const [lastName, setLastName] = useState(storedLastName);
+  const [mobileNumber, setMobileNumber] = useState(storedMobileNumber);
   return (
     <View style={globalStyle.wrapper}>
       <View>
-        <BackButton to="SignUp" navigation={navigation} />
         <View style={styles.mainContent}>
           <Text style={globalStyle.bigBold}>
             Fill in your bio to get started
@@ -47,7 +52,7 @@ const BioFillup = ({navigation}) => {
           style={inputBoxStyle.inputBox}
         />
         <TextInput
-          placeholder="Mobile Name"
+          placeholder="Mobile Number"
           value={mobileNumber}
           onChangeText={setMobileNumber}
           style={inputBoxStyle.inputBox}
@@ -60,10 +65,12 @@ const BioFillup = ({navigation}) => {
             saveProfileData({
               firstName,
               lastName,
-              mobileNumber: '+977 ' + mobileNumber,
+              mobileNumber: mobileNumber,
             }),
           );
-          navigation.navigate('PaymentMethod');
+          if (route?.params?.params.fromProfileScreen)
+            navigation.navigate('Profile');
+          else navigation.navigate('PaymentMethod');
         }}
       />
     </View>

@@ -2,6 +2,7 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {LOGO} from '../../images/images';
 import {LinearTextGradient} from 'react-native-text-gradient';
+import {COLORS} from '../../Colors/Colors';
 
 const LogoName = () => {
   return (
@@ -10,7 +11,7 @@ const LogoName = () => {
       <LinearTextGradient
         style={styles.bigText}
         locations={[0, 1]}
-        colors={['#53E88B', '#15BE77']}
+        colors={[COLORS.secondary, COLORS.primary]}
         start={{x: 0, y: 1}}
         end={{x: 1, y: 1}}>
         <Text style={styles.appNameText}>KhajaGhar</Text>
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: '400',
     opacity: 1,
-    color: '#53E88B',
+    color: COLORS.secondary,
   },
   quote: {
     color: '#09051C',

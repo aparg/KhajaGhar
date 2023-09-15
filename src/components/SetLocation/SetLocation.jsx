@@ -1,15 +1,23 @@
-import {Image, StyleSheet, Text, View, Pressable} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  TextInput,
+} from 'react-native';
 import React from 'react';
 import BackButton from '../BackButton/BackButton';
 import withBackground from '../hocs/withBackground';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import PrimaryButton from '../Layouts/PrimaryButton/PrimaryButton';
 import {ICONS} from '../../images/images';
+import globalStyle from '../../Typography/typography';
 
 const SetLocation = ({navigation}) => {
   return (
     <View style={styles.wrapper}>
       <BackButton to="ProfilePhotoUpload" navigation={navigation} />
-      <Text style={styles.bigBold}>Set Your Location</Text>
+      <Text style={globalStyle.bigBold}>Set Your Location</Text>
       <Text style={styles.small}>
         This data will be displayed in your account
       </Text>
@@ -20,7 +28,9 @@ const SetLocation = ({navigation}) => {
           <Text style={styles.locationInput}>Your Location</Text>
         </View>
         <Pressable onPress={() => {}} style={styles.setLocationBtn}>
-          <Text style={styles.btnTxt}>Set Location</Text>
+          <TextInput
+            style={styles.btnTxt}
+            placeholder="Set Location"></TextInput>
         </Pressable>
       </View>
       <PrimaryButton

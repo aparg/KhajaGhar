@@ -3,7 +3,7 @@ import React from 'react';
 import globalStyle from '../../Typography/typography';
 import BackButton from '../BackButton/BackButton';
 import shadow from '../../Typography/shadow';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import PrimaryButton from '../Layouts/PrimaryButton/PrimaryButton';
 import {useSelector} from 'react-redux';
 import {ICONS} from '../../images/images';
 

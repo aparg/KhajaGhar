@@ -2,11 +2,11 @@ import React from 'react';
 import {Text, View, Image, StyleSheet, ImageBackground} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
+import {COLORS} from '../../Colors/Colors';
 
 function Entry() {
   return (
     <View style={styles.main}>
-      <Text>Hello</Text>
       <ImageBackground
         source={require('../../../assets/images/Pattern.png')}
         resizeMode="cover"
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: '400',
     opacity: 1,
-    color: '#53E88B',
+    color: COLORS.secondary,
   },
   quote: {
     color: '#09051C',

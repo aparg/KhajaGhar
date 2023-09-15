@@ -2,9 +2,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import FirstEntryPage from './src/components/FirstEntryPage/FirstEntryPage';
 import {NavigationContainer} from '@react-navigation/native';
 import SecondEntryPage from './src/components/SecondEntryPage/SecondEntryPage';
-import LoginPage from './src/components/LoginPage/LoginPage';
+import LoginPage from './src/components/Screens/LoginPage/LoginPage';
 import SignUp from './src/components/SignUp/SignUp';
-import BioFillup from './src/components/BioFIllup/BioFillup';
+import BioFillup from './src/components/Screens/BioFIllup/BioFillup';
 import PaymentMethod from './src/components/PaymentMethod/PaymentMethod';
 import ProfilePhotoUpload from './src/components/ProfilePhotoUpload/ProfilePhotoUpload';
 import SetLocation from './src/components/SetLocation/SetLocation';
@@ -18,37 +18,21 @@ import persistStore from 'redux-persist/es/persistStore';
 import persistedProfileStore from './store/store';
 import PasswordResetSuccess from './src/components/PasswordResetSuccess/PasswordResetSuccess';
 import Home from './src/components/Home/Home';
+import NearestRestaurantList from './src/components/NearestRestaurantList/NearestRestaurantList';
+import PopularMenuList from './src/components/PopularMenuList/PopularMenuList';
+import DisplayInformation from './src/components/DisplayInformation/DisplayInformation';
+import TabNavigator from './src/components/TabNavigator/TabNavigator';
+import {useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
 
 const MyStack = () => {
-  let persistor = persistStore(persistedProfileStore);
-
+  const isLoggedIn = useSelector(state => state.profileData.isLoggedIn);
   return (
-    <Provider store={persistedProfileStore}>
-      <PersistGate persistor={persistor}>
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="ResetPassword">
-            <Stack.Screen
-              name="FirstEntryPage"
-              component={FirstEntryPage}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="SecondEntryPage"
-              component={SecondEntryPage}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="LoginPage"
-              component={LoginPage}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="SignUp"
-              component={SignUp}
-              options={{headerShown: false}}
-            />
+    <NavigationContainer>
+      <Stack.Navigator>
+        {isLoggedIn ? (
+          <>
             <Stack.Screen
               name="BioFillup"
               component={BioFillup}
@@ -95,14 +79,42 @@ const MyStack = () => {
               options={{headerShown: false}}
             />
             <Stack.Screen
-              name="Home"
-              component={Home}
+              name="TabNavigator"
+              component={TabNavigator}
               options={{headerShown: false}}
             />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </PersistGate>
-    </Provider>
+            <Stack.Screen
+              name="DisplayInformation"
+              component={DisplayInformation}
+              options={{headerShown: false}}
+            />
+          </>
+        ) : (
+          <>
+            <Stack.Screen
+              name="FirstEntryPage"
+              component={FirstEntryPage}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="SecondEntryPage"
+              component={SecondEntryPage}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="LoginPage"
+              component={LoginPage}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="SignUp"
+              component={SignUp}
+              options={{headerShown: false}}
+            />
+          </>
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

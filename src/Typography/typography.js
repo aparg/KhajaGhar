@@ -17,6 +17,12 @@ const globalStyle = StyleSheet.create({
     fontSize: 15,
     marginTop: 5,
   },
+  smallBold: {
+    fontFamily: 'BentonSans Bold',
+    color: '#09051C',
+    fontSize: 20,
+    fontWeight: '800',
+  },
 });
 
 export default globalStyle;

@@ -8,7 +8,7 @@ const SecondEntryPage = ({navigation}) => {
       messageLine1="Enjoy a fast and smooth food delivery at"
       messageLine2="your doorstep"
       imagePath={ILLUSTRATIONS.entryPageIllustration1}
-      pressed={() => navigation.navigate('LoginPage')}
+      pressed={() => navigation.navigate('SignUp')}
     />
   );
 };

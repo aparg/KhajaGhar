@@ -5,6 +5,8 @@ const paymentImgPath = `${imageFolder}/payment`;
 const socialsImgPath = `${imageFolder}/socials`;
 const illustrationsImgPath = `${imageFolder}/illustrations`;
 const backgroundImgPath = `${imageFolder}/background`;
+const staticImgPath = `${imageFolder}/statics`;
+const notificationsImgPath = `${imageFolder}/notifications`;
 
 //ICONS
 export const ICONS = {
@@ -23,6 +25,15 @@ export const ICONS = {
   passwordHide: require(`${iconsImgPath}/password-hidden.png`),
   search: require(`${iconsImgPath}/search.png`),
   filter: require(`${iconsImgPath}/filter.png`),
+  locationGreen: require(`${iconsImgPath}/location-green.png`),
+  trash: require(`${iconsImgPath}/trash.png`),
+  minus: require(`${iconsImgPath}/minus.png`),
+  plus: require(`${iconsImgPath}/plus.png`),
+  homeLight: require(`${iconsImgPath}/home-light.png`),
+  cart: require(`${iconsImgPath}/cart.png`),
+  edit: require(`${iconsImgPath}/edit.png`),
+  emptyProfileImg: require(`${iconsImgPath}/emptyProfileImg.png`),
+  notification: require(`${iconsImgPath}/notification.png`),
 };
 
 //LOGO
@@ -50,4 +61,8 @@ export const ILLUSTRATIONS = {
 
 export const BACKGROUND = {
   background: require(`${backgroundImgPath}/background-pattern.png`),
+};
+
+export const STATICS = {
+  restaurant: require(`${staticImgPath}/restaurantPhoto.png`),
 };

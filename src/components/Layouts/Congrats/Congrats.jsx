@@ -2,6 +2,7 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {LinearTextGradient} from 'react-native-text-gradient';
 import {ICONS} from '../../../images/images';
+import {COLORS} from '../../../Colors/Colors';
 
 const Congrats = ({text}) => {
   return (
@@ -11,7 +12,7 @@ const Congrats = ({text}) => {
       <LinearTextGradient
         style={styles.bigText}
         locations={[0, 1]}
-        colors={['#53E88B', '#15BE77']}
+        colors={[COLORS.secondary, COLORS.primary]}
         start={{x: 0, y: 1}}
         end={{x: 1, y: 1}}>
         <Text>Congrats!</Text>

@@ -1,17 +1,18 @@
 import {Image, StyleSheet, Text, View, Pressable} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import PrimaryButton from '../Layouts/PrimaryButton/PrimaryButton';
 import BackButton from '../BackButton/BackButton';
 import SecondaryButton from '../SecondaryButton/SecondaryButton';
 import globalStyle from '../../Typography/typography';
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {saveImagePath} from '../../../slices/slice';
 import {ICONS} from '../../images/images';
 
 const ProfilePhotoUpload = ({navigation}) => {
   const dispatch = useDispatch();
-  const [selectedImage, setSelectedImage] = useState(null);
+  const storedImage = useSelector(state => state.profileData.profilePhoto);
+  const [selectedImage, setSelectedImage] = useState(storedImage);
   const handleImagePick = () => {
     ImagePicker.openPicker({
       width: 300,

@@ -1,7 +1,7 @@
 import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import BackButton from '../BackButton/BackButton';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import PrimaryButton from '../Layouts/PrimaryButton/PrimaryButton';
 import {PAYMENT} from '../../images/images';
 
 const PaymentMethod = ({navigation}) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Congrats from '../Layouts/Congrats/Congrats';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import PrimaryButton from '../Layouts/PrimaryButton/PrimaryButton';
 const ProfileReady = ({navigation}) => {
   return (
     <>
@@ -8,7 +8,7 @@ const ProfileReady = ({navigation}) => {
       <PrimaryButton
         text="Try Order"
         pressed={() => {
-          navigation.navigate('Home');
+          navigation.navigate('TabNavigator');
         }}
       />
     </>
